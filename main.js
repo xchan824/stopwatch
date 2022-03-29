@@ -20,7 +20,19 @@ window.onload = function () {
 
   stopButton.onclick = () => {
     clearInterval(interval);
-  }
+  };
+
+  resetButton.onclick = () => {
+    clearInterval(interval);
+    
+    milliseconds = 0;
+    seconds = 0;
+    minutes = 0;
+
+    appendMilli.textContent = "00";
+    appendSeconds.textContent = "00";
+    appendMinutes.textContent = "00";
+  };
 
   function startTimer() {
     milliseconds++;
@@ -45,7 +57,7 @@ window.onload = function () {
     }
 
     if (minutes > 9) {
-      appendSeconds.textContent = minutes;
+      appendMinutes.textContent = minutes;
     }
   }
 };
