@@ -14,9 +14,13 @@ window.onload = function () {
   const resetButton = document.getElementById("reset");
 
   startButton.onclick = () => {
-    // clearInterval(interval);
+    clearInterval(interval); //this line of code prevents multiple instances of setInterval running when a user spam clicks on start button
     interval = setInterval(startTimer, 10);
   };
+
+  stopButton.onclick = () => {
+    clearInterval(interval);
+  }
 
   function startTimer() {
     milliseconds++;
