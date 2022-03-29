@@ -3,7 +3,7 @@ window.onload = function () {
   let seconds = 0;
   let minutes = 0;
 
-  let interval = 0;
+  let interval;
 
   const appendMilli = document.getElementById("milliseconds");
   const appendSeconds = document.getElementById("seconds");
@@ -22,8 +22,26 @@ window.onload = function () {
     milliseconds++;
     if (milliseconds <= 9) {
       appendMilli.textContent = "0" + milliseconds;
-    } else if (milliseconds > 9) {
+    } else if (milliseconds > 9 && milliseconds <= 99) {
       appendMilli.textContent = milliseconds;
+    } else if (milliseconds > 99) {
+      seconds++;
+      appendSeconds.textContent = "0" + seconds;
+      milliseconds = 0;
+      appendMilli.textContent = "0" + 0;
+    }
+
+    if (seconds > 9 && seconds <= 59) {
+      appendSeconds.textContent = seconds;
+    } else if (seconds > 59) {
+      minutes++;
+      appendMinutes.textContent = "0" + minutes;
+      seconds = 0;
+      appendSeconds.textContent = "0" + 0;
+    }
+
+    if (minutes > 9) {
+      appendSeconds.textContent = minutes;
     }
   }
 };
