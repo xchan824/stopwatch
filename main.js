@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = () => {
   let milliseconds = 0;
   let seconds = 0;
   let minutes = 0;
